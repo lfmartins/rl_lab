@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rl_lab"
+version = "0.1.0"
+description = "Educational reinforcement learning laboratory"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+license = { text = "MIT" }
+
+authors = [
+  { name = "Luiz Felipe Martins" }
+]
+
+dependencies = [
+  "numpy<2",
+  "scipy",
+  "pandas",
+  "matplotlib",
+  "torch>=2.2,<2.3",
+  "torchvision",
+  "torchaudio",
+  "gymnasium[classic-control]>=0.29",
+  "torchrl>=0.3",
+  "stable-baselines3>=2.2",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["rl_lab"]
+

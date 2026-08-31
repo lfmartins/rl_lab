@@ -1,0 +1,6 @@
+find . \
+  \( -type d -name "__pycache__" \
+     -o -type d -name "build" \
+     -o -type d -name "dist" \
+     -o -type d -name "*.egg-info" \) \
+  -prune -exec rm -rf {} +

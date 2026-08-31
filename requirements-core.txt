@@ -1,0 +1,16 @@
+# Numerical stack (NumPy 2.x not yet supported by PyTorch ecosystem)
+numpy<2
+scipy
+pandas
+matplotlib
+
+# Deep learning
+torch>=2.2,<2.3
+torchvision
+torchaudio
+
+# Reinforcement learning
+gymnasium[classic-control]>=0.29
+torchrl>=0.3
+stable-baselines3>=2.2
+

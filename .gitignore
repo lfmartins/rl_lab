@@ -1,0 +1,50 @@
+**./DS_Store
+# ----------------------
+# Python Bytecode / Cache
+# ----------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ----------------------
+# Virtual Environments
+# ----------------------
+.venv/
+env/
+venv/
+ENV/
+
+# ----------------------
+# Test / Coverage
+# ----------------------
+*.pytest_cache/
+*.coverage
+htmlcov/
+.coverage.*
+.pytest_cache/
+tests/__pycache__/
+
+# ----------------------
+# IDE / Editor
+# ----------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ----------------------
+# Logs / Temp
+# ----------------------
+*.log
+*.tmp
+*.swp
+*.bak
+
+# ----------------------
+# Build / Distribution
+# ----------------------
+dist/
+build/
+*.egg-info/
+
+
