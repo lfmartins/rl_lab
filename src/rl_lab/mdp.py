@@ -179,6 +179,25 @@ class MDP:
         view.setflags(write=False)
         return view
 
+    def _check_state_action(self, state: State, action: Action) -> Tuple[int, int]:
+        if state not in self._state_indexes:
+            raise ValueError(f"Invalid state: {state}")
+        if action not in self._action_indexes:
+            raise ValueError(f"Invalid action: {action}")
+        if action not in self._admissible_actions[state]:
+            raise ValueError(f"Action {action} not admissible for state {state}")
+        return self._action_indexes[action], self._state_indexes[state]
+
+    def P(self, state: State, action: Action) -> np.ndarray:
+        """Transition probability distribution over states for (state, action)."""
+        i, j = self._check_state_action(state, action)
+        return self._transition_probs[i, j, :]
+
+    def R(self, state: State, action: Action) -> np.ndarray:
+        """Rewards for each target state reachable from (state, action)."""
+        i, j = self._check_state_action(state, action)
+        return self._rewards[i, j, :]
+
     def seed(self, seed):
         self._rng = np.random.default_rng(seed=seed)
 
@@ -201,7 +220,7 @@ class MDP:
             raise ValueError("Simulation not set up properly. Call reset() before calling step()")
         if action not in self._admissible_actions[self._current_state]:
             raise ValueError(f"Action {action} not available for state {self._current_state}")
-        action_index = self._action_indexes(action)
+        action_index = self._action_indexes[action]
         u = self._rng.random()
         next_state_index = int(
             np.searchsorted(
